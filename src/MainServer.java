@@ -25,7 +25,7 @@ public class MainServer
             }
         }catch(IOException e)
         {
-            System.out.println("Errore di connessione");
+            e.printStackTrace();
         }
     }
 }

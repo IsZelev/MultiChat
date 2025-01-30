@@ -3,7 +3,7 @@ import java.net.Socket;
 
 public class ClientMain
 {
-    public static void ain(String[] args) throws Exception {
+    public static void main(String[] args) throws Exception {
         Socket clientSocket;
         try
         {

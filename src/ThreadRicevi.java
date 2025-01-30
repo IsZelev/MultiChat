@@ -28,7 +28,7 @@ public class ThreadRicevi implements Runnable
             socket.close();
         }catch(IOException e)
         {
-            System.out.println("Errore di connessione...");
+            e.printStackTrace();;
         }
     }
 }
