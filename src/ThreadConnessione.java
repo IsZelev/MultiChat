@@ -10,10 +10,10 @@ public class ThreadConnessione implements Runnable
     private ListaClient listaClient;
     private String nomeClient;
 
-    public ThreadConnessione(Socket c, ListaClient lc) throws IOException
+    public ThreadConnessione(Socket client, ListaClient listaClient) throws IOException
     {
-        c = client;
-        lc = listaClient;
+        this.client = client;
+        this.listaClient = listaClient;
         in = new BufferedReader(new InputStreamReader(client.getInputStream()));
         nomeClient = "errore";
     }
