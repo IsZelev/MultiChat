@@ -3,6 +3,13 @@ import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
 
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+
 public class ThreadInvio implements Runnable
 {
     private Scanner sc;
@@ -21,14 +28,15 @@ public class ThreadInvio implements Runnable
         {
             if(primo)
             {
-                System.out.println("Inserisci il tuo username");
-            }
-            message = sc.nextLine();
-            out.println(message);
-            out.flush();
-            if(primo)
-                System.out.println("Utente acquisito, scrivi messaggio");
+                String username = JOptionPane.showInputDialog(null, "Inserisci il tuo nome utente");
+                Chat createChat = new Chat(username);
+                JOptionPane.showMessageDialog(null, "Benventuto nella multichat " + username + "!");
+                
                 primo = false;
+            }
+            out.println();
+            out.flush();
         }
     }
+
 }

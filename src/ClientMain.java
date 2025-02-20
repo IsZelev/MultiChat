@@ -1,6 +1,8 @@
 import java.io.IOException;
 import java.net.Socket;
 
+import javax.swing.JOptionPane;
+
 public class ClientMain
 {
     public static void main(String[] args) throws Exception {
@@ -12,6 +14,7 @@ public class ClientMain
             Thread riceviThread = new Thread(new ThreadRicevi(clientSocket));
             invioThread.start();
             riceviThread.start();
+
         } catch(IOException e)
         {
             System.out.println("Impossibile connettersi al server");
