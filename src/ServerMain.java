@@ -3,7 +3,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
 
-public class MainServer
+public class ServerMain
 {
     public static void main(String[] args)
     {
@@ -15,6 +15,7 @@ public class MainServer
             ListaClient listaClient = new ListaClient();
             System.out.println("Server aperto");
             System.out.println("In attesa di connessioni...");
+            ChatServer chatServer = new ChatServer("Server");
             while(true)
             {
                 Socket nuovoClient = serverSocket.accept();

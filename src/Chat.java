@@ -2,15 +2,20 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintWriter;
 
-public class Chat extends JPanel implements ActionListener {
+public class Chat extends JPanel implements ActionListener
+{
     private JTextArea chatArea;
     private JTextField messageField;
     private JButton sendButton;
     private String username;
+    private PrintWriter out;
     
-    public Chat(String username) {
+    public Chat(String username, PrintWriter out) {
         this.username = username;
+        this.out = out;
+        
         setLayout(new BorderLayout(10, 10));
         
         // Username display
@@ -39,19 +44,17 @@ public class Chat extends JPanel implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == sendButton) {
+            //da mandare in out
             String message = messageField.getText().trim();
+            out.println(message);
+            //
             if (!message.isEmpty()) {
+                
                 chatArea.append(username + ": " + message + "\n");
                 messageField.setText("");
+            
+            
             }
         }
-    }
-
-    public static void main(String[] args) {
-        JFrame frame = new JFrame("Chat Application");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(400, 300);
-        frame.add(new Chat("User1"));
-        frame.setVisible(true);
     }
 }

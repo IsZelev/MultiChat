@@ -24,7 +24,7 @@ public class ThreadConnessione implements Runnable
         boolean primo = true;
         try
         {
-            while(!Thread.interrupted())
+            while(!Thread.interrupted() && in.readLine() != null)
             {
                 messaggio = in.readLine();
                 if(primo)
@@ -34,7 +34,7 @@ public class ThreadConnessione implements Runnable
                     primo = false;
                 } else
                 {
-                    listaClient.sendAll(nomeClient + ": " + messaggio,client);
+                    listaClient.sendAll(nomeClient + ": " + messaggio, client);
                 }
             }
         }catch(IOException e)

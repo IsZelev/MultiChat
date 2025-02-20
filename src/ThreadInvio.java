@@ -29,8 +29,7 @@ public class ThreadInvio implements Runnable
             if(primo)
             {
                 String username = JOptionPane.showInputDialog(null, "Inserisci il tuo nome utente");
-                Chat createChat = new Chat(username);
-                JOptionPane.showMessageDialog(null, "Benventuto nella multichat " + username + "!");
+                ChatClient chatClient = new ChatClient(username, out);
                 
                 primo = false;
             }
@@ -38,5 +37,4 @@ public class ThreadInvio implements Runnable
             out.flush();
         }
     }
-
 }
