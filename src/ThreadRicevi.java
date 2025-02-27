@@ -19,10 +19,11 @@ public class ThreadRicevi implements Runnable
     public void run()
     {
         String messaggio;
+        System.out.println("ciao sono il client");
         try
         {
             messaggio = in.readLine();
-
+            System.out.println(messaggio);
             while(messaggio!=null)
             {
                 System.out.println(messaggio);
@@ -31,8 +32,9 @@ public class ThreadRicevi implements Runnable
             }
             System.out.println("Server chiuso");
             socket.close();
-        }catch(IOException e)
+        }catch(Exception e)
         {
+            System.out.println(e.toString());
             e.printStackTrace();
         }
     }
