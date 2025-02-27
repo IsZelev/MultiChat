@@ -41,19 +41,21 @@ public class Chat extends JPanel implements ActionListener
         add(inputPanel, BorderLayout.SOUTH);
     }
 
+    public JTextArea getChatArea()
+    {
+        return chatArea;
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == sendButton) {
-            //da mandare in out
+        if (e.getSource() == sendButton)
+        {
             String message = messageField.getText().trim();
             out.println(message);
-            //
             if (!message.isEmpty()) {
                 
                 chatArea.append(username + ": " + message + "\n");
                 messageField.setText("");
-            
-            
             }
         }
     }

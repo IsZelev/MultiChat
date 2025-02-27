@@ -8,14 +8,13 @@ public class ServerMain
     public static void main(String[] args)
     {
         final int PORT = 5500;
-        try
+        
+        try (ServerSocket serverSocket = new ServerSocket(PORT))
         {
-            ServerSocket serverSocket = new ServerSocket(PORT);
             ArrayList<Thread> listaThreadConnessioni = new ArrayList<Thread>();
             ListaClient listaClient = new ListaClient();
             System.out.println("Server aperto");
             System.out.println("In attesa di connessioni...");
-            ChatServer chatServer = new ChatServer("Server");
             while(true)
             {
                 Socket nuovoClient = serverSocket.accept();
